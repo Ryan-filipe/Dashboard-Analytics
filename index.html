@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Dashboard de Analytics</title>
+</head>
+<body>
+    <aside>
+        <nav>
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Vídeos</a></li>
+                <li><a href="#">Configurações</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <header>
+        <h1>Dashboard de Analytics</h1>
+        <input type="search" placeholder="Pesquisar vídeo...">
+    </header>
+    <main>
+        <section class="cards-container">
+            <div class="card">
+                <p>Visualizações</p>
+                <h2 id="totalVisualizacoes"></h2>
+            </div>
+            <div class="card">
+                <p>Inscritos</p>
+                <h2 id="totalInscritos"></h2>
+            </div>
+            <div class="card">
+                <p>Vídeos</p>
+                <h2 id="totalVideos"></h2>
+            </div>
+            <div class="card">
+                <p>Curtidas</p>
+                <h2 id="totalCurtida"></h2>
+            </div>
+        </section>
+        <section>
+            <div id="grafico">
+
+            </div>
+        </section>
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Visualizações</th>
+                        <th>Curtidas</th>
+                        <th>Inscritos</th>
+                    </tr>
+                </thead>
+                <tbody id="listaVideos">
+
+                </tbody>
+            </table>
+        </section>
+    </main>
+ 
+<script src="script.js"></script>
+</body>
+</html>
