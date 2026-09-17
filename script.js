@@ -39,18 +39,24 @@ const totalInscritosT= document.querySelector("#totalInscritos")
 totalInscritosT.textContent= totalInscritos
 
 const tabela = document.querySelector('#listaVideos')
-for(let i = 0; i < videos.length; i++ ){
-const linha = document.createElement('tr');
 
-linha.innerHTML=`
-<td>${videos[i].titulo}</td>
-<td>${videos[i].views}</td>
-<td>${videos[i].curtidas}</td>
-<td>${videos[i].inscritos}</td>
-`;
-
-tabela.append(linha)
+function renderizarTabela(lista){
+      tabela.innerHTML = "";
+    for (let i = 0; i < lista.length; i++){
+        const linha = document.createElement('tr')
+        linha.innerHTML =`
+<td>${lista[i].titulo}</td>
+<td>${lista[i].views}</td>
+<td>${lista[i].curtidas}</td>
+<td>${lista[i].inscritos}</td>
+`
+       
+        
+       tabela.append(linha)
+    }
+  
 }
+renderizarTabela(videos);
 
 const mediaViews = totalViews / videos.length;
 console.log(mediaViews)
@@ -72,3 +78,19 @@ const videosMenorVisto = videos.reduce((menorAtual, videoAtual)=>{
     }
 });
 console.log(videosMenorVisto)
+
+const videosFiltrados= videos.filter((Video)=>{
+    return Video.titulo.toLowerCase().includes("gato".toLowerCase());
+})
+console.log(videosFiltrados )
+
+const inputBusca= document.querySelector("#inputBusca");
+
+inputBusca.addEventListener('input', () => {
+    const inputFiltrados = videos.filter((Videopt)=>{
+       return Videopt.titulo.toLowerCase().includes(inputBusca.value.toLowerCase());
+    });
+    console.log(inputFiltrados);
+    tabela.innerHTML ="";
+renderizarTabela(inputFiltrados);
+});
