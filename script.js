@@ -94,3 +94,28 @@ inputBusca.addEventListener('input', () => {
     tabela.innerHTML ="";
 renderizarTabela(inputFiltrados);
 });
+
+const videosOrdenadosPorViews = [...videos].sort((a, b)=>{
+    return b.views - a.views;
+})
+console.log(videosOrdenadosPorViews)
+
+const btnOrdenar = document.querySelector('#btnOrdenar');
+
+btnOrdenar.addEventListener('click', () => {
+    const buttonOrder = [...videos].sort((a, b) => {
+        return b.views - a.views;
+    });
+    renderizarTabela(buttonOrder);
+});
+
+const titulos = videos.map((video)=>{
+    return video.titulo;
+})
+
+
+const viewsS = videos.map((video)=>{
+    return video.views;
+})
+
+console.log(viewsS)
