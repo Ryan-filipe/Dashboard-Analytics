@@ -135,5 +135,20 @@ new Chart(ctx,{
             label: 'Visualizações',
             data: viewsS
         }]
+    },
+    options:{
+        scales:{
+            x:{
+                ticks: { color: '#ffffff'}
+            },
+            y:{
+                ticks: { color: '#ffffff'}
+            }
+        },
+        plugins:{
+            legend:{
+                labels: { color: '#ffffff'}
+            }
+        }
     }
 });
