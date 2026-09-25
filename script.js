@@ -86,10 +86,14 @@ const videosMenorVisto = videos.reduce((menorAtual, videoAtual)=>{
     }
 });
 
+const mediaViewsEl= document.querySelector("#mediaViewsEl")
+mediaViewsEl.textContent = mediaViews;
 
-const videosFiltrados= videos.filter((Video)=>{
-    return Video.titulo.toLowerCase().includes("gato".toLowerCase());
-})
+const maisVistoEl = document.querySelector("#maisVistoEl")
+maisVistoEl.textContent = videosMaisVisto.titulo;
+
+const menosVistoEl = document.querySelector("#menosVistoEl")
+menosVistoEl.textContent = videosMenorVisto.titulo;
 
 
 const inputBusca= document.querySelector("#inputBusca");
@@ -98,14 +102,9 @@ inputBusca.addEventListener('input', () => {
     const inputFiltrados = videos.filter((Videopt)=>{
        return Videopt.titulo.toLowerCase().includes(inputBusca.value.toLowerCase());
     });
-    console.log(inputFiltrados);
     tabela.innerHTML ="";
 renderizarTabela(inputFiltrados);
 });
-
-const videosOrdenadosPorViews = [...videos].sort((a, b)=>{
-    return b.views - a.views;
-})
 
 
 const btnOrdenar = document.querySelector('#btnOrdenar');
